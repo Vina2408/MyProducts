@@ -1,0 +1,53 @@
+<h2  style="text-align: center; border: 1px 1px 1px ;">{{ActionType}} Item</h2>
+
+<div class="container">
+    <form [formGroup]="dataForm" autocomplete="off">
+        <div class="mb-1">
+            <label for="Name" class="form-label">Name</label>
+            <div class="input-group has-validation">
+                <input type="text" #name [ngClass]="{'form-control': true, 'is-invalid': dataForm.get('Name')?.invalid &&
+                (dataForm.get('Name')?.dirty || dataForm.get('Name')?.touched)}" id="Name" name="Name"
+                    formControlName="Name" placeholder="Name">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="Description" class="form-label">Description</label>
+            <div class="input-group has-validation">
+                <input type="text" #name [ngClass]="{'form-control': true, 'is-invalid': dataForm.get('Description')?.invalid &&
+                (dataForm.get('Description')?.dirty || dataForm.get('Description')?.touched)}" id="Description" name="Description"
+                    formControlName="Description" placeholder="Description">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="Price" class="form-label">Price</label>
+            <div class="input-group has-validation">
+                <input type="Price" maxlength="10" [ngClass]="{'form-control': true, 'is-invalid': dataForm.get('Price')?.invalid &&
+                (dataForm.get('Price')?.dirty || dataForm.get('Price')?.touched)}" id="Price" name="Price"
+                    formControlName="Price" placeholder="Price">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="mb-1">
+            <label for="Image" class="form-label">Image</label>
+            <div class="input-group has-validation">
+                <input type="file"  id="Image" name="Image"
+                    formControlName="Image" placeholder="Image">
+            </div>
+        </div>
+        <div class="mb-1" align="center" >
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="save()" [disabled]="dataForm.invalid" class="btn btn-primary" type="button">
+                    {{ProductId==0 || ProductId==null ?'Save':'Update'}}</button>
+                <button class="btn btn-secondary" style="margin-left: 20px;" type="button" (click) = "Reset()">Reset </button>
+            </div>
+        </div>
+    </form>
+</div>
